@@ -9,6 +9,7 @@ pipeline {
 
     triggers {
         cron('H 2 * * *')   // runs automatically once daily, around 2 AM
+        githubPush()
     }
 
     parameters {

@@ -31,9 +31,9 @@ public class BaseTest
 
     @BeforeMethod(alwaysRun = true)
     @Parameters({"browser"})
-    public void setUp(@Optional("chrome") String browserParam) throws Exception 
+    public void setUp(@Optional("") String browserParam) throws Exception 
     {
-        String browser = browserParam != null ? browserParam : ConfigReader.get("browser", "chrome");
+    	String browser = (browserParam != null && !browserParam.isBlank()) ? browserParam : ConfigReader.get("browser", "chrome");
         boolean headless = ConfigReader.getBoolean("headless", false);
 
         log.info("Launching browser: {} (headless={})", browser, headless);
