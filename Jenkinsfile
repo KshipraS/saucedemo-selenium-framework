@@ -74,19 +74,19 @@ pipeline {
                     <p>Console: <a href="${env.BUILD_URL}console">View Console Log</a></p>
                 """,
                 mimeType: 'text/html',
-                to: 'qa-team@example.com',
+                to: 'kships26@gmail.com',
                 attachmentsPattern: 'test-output/extent-reports/*.html'
             )
 
-            slackSend(
-                channel: '#qa-automation',
-                color: 'good',
-                message: """
-                    :white_check_mark: *PASSED*: ${env.JOB_NAME} - Build #${env.BUILD_NUMBER}
-                    Environment: ${params.ENV} | Browser: ${params.BROWSER}
-                    Report: ${env.BUILD_URL}Extent_Report
-                """
-            )
+            //slackSend(
+            //    channel: '#qa-automation',
+            //    color: 'good',
+            //    message: """
+            //        :white_check_mark: *PASSED*: ${env.JOB_NAME} - Build #${env.BUILD_NUMBER}
+            //        Environment: ${params.ENV} | Browser: ${params.BROWSER}
+            //        Report: ${env.BUILD_URL}Extent_Report
+            //    """
+            //)
         }
 
         failure {
@@ -99,20 +99,20 @@ pipeline {
                     <p>Console: <a href="${env.BUILD_URL}console">View Console Log</a></p>
                 """,
                 mimeType: 'text/html',
-                to: 'qa-team@example.com',
+                to: 'kships26@gmail.com',
                 attachmentsPattern: 'test-output/extent-reports/*.html'
             )
 
-            slackSend(
-                channel: '#qa-automation',
-                color: 'danger',
-                message: """
-                    :x: *FAILED*: ${env.JOB_NAME} - Build #${env.BUILD_NUMBER}
-                    Environment: ${params.ENV} | Browser: ${params.BROWSER}
-                    Report: ${env.BUILD_URL}Extent_Report
-                    Console: ${env.BUILD_URL}console
-                """
-            )
+            //slackSend(
+            //    channel: '#qa-automation',
+            //    color: 'danger',
+            //    message: """
+            //        :x: *FAILED*: ${env.JOB_NAME} - Build #${env.BUILD_NUMBER}
+            //        Environment: ${params.ENV} | Browser: ${params.BROWSER}
+            //        Report: ${env.BUILD_URL}Extent_Report
+            //        Console: ${env.BUILD_URL}console
+            //    """
+            //)
         }
     }
 }
